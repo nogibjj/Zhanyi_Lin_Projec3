@@ -73,6 +73,7 @@ if __name__ == "__main__":
     )
     df = load_orginal_dataset()
     df = build_df(df)
+    print(df.head())
     df.to_sql("Tweets", con, if_exists='replace', index=False) # writes to file
     con.commit()
     con.close()
