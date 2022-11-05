@@ -51,8 +51,7 @@ def analyze_topic(text = "What a good word"):
     scores = expit(scores)
     return class_mapping[np.argmax(scores)]
 
-def build_df():
-    df = load_orginal_dataset("cleandata.csv")
+def build_df(df):
     df["Topic"] = df.Cleaned_Tweets.apply(analyze_topic)
     print(df.head())
     return df
@@ -73,6 +72,7 @@ if __name__ == "__main__":
                                 Topic TEXT);""",
     )
     df = load_orginal_dataset()
+    df = build_df(df)
     df.to_sql("Tweets", con, if_exists='replace', index=False) # writes to file
     con.commit()
     con.close()
