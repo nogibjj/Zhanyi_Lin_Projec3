@@ -15,5 +15,5 @@ def query_from_sqlie(likes = 0, topic = "news_&_social_concern"):
     st.table(df_sub)
     return 1
 if __name__ == "__main__":
-    query_from_sqlie(0,"diaries_&_daily_life")
+    query_from_sqlie(1000,"diaries_&_daily_life")
     
